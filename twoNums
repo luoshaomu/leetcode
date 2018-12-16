@@ -1,0 +1,29 @@
+/**
+* 传入有序数组，求数组中两个数之和等于目标值，并返回下标值
+*/
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] result = new int[2];
+        if (null == nums || nums.length == 0) {
+            return null;
+        }
+        if (target <= 0) {
+            return null;
+        }
+        int header = 0;
+        int tail = nums.length - 1;
+        while (header < tail) {
+            int temp = nums[header] + nums[tail];
+            if(temp == target) {
+                result[0] = header;
+                result[1] = tail;
+                return result;
+            } else if(temp < target) {
+                header ++;
+            } else {
+                tail --;
+            }
+        }
+        return null;
+    }
+}
